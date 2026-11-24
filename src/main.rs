@@ -14,6 +14,11 @@ fn print_instructions() {
     println!("3 > Input 3 to exit");
 }
 
+fn print_validity() {
+    println!();
+    println!("Invalid CHoice!");
+}
+
 fn main() {
     println!("TEMPERATURE CONVERTER");
 
@@ -34,10 +39,12 @@ fn main() {
             Ok(2) => 2,
             Ok(3) => break,
             Ok(_) => {
+                print_validity();
                 print_instructions();
                 continue;
             },
             Err(_) => {
+                print_validity();
                 print_instructions();
                 continue;
             }
@@ -67,12 +74,14 @@ fn main() {
         if choice == 1 {
             let celsius = farenheit_to_celsius(temperature);
             println!("{temperature}°F is {celsius:.2}°C");
+            println!();
 
             //restating the instructions
             print_instructions();
         } else {
             let farenheit = celsius_to_farenheit(temperature);
             println!("{temperature}°C is {farenheit:.2}°F");
+            println!();
 
             //restating the instructions
             print_instructions();
